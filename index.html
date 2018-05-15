@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-$(document).ready(function(){
-    
-    $("#painike").click(function(){
-        var id = $("#inputti").val();
-        console.log(id);
-    });
-});
-</script>
+    <script>
+        $(document).ready(function () {
+
+            $("#painike").click(function () {
+                var id = $("#inputti").val();
+                var gatlin = "http://gatling.nelonenmedia.fi/media-xml-cache?id=";
+
+
+                $.ajax({
+
+                    type: "GET",
+                    url: gatlin + id,
+                    success: function (data) {
+                        console.log(data);
+                        
+                        // Playerdata > Clip > AndroidMediaFiles > AndroidMediaFile
+                       var linkki =  $(data).find('Playerdata').children('Clip').children('AndroidMediaFiles').children('AndroidMediaFile').text();
+                       console.log(linkki);
+                    }
+
+                });
+            });
+        });
+    </script>
 </head>
+
 <body>
-    <input type="text" name="" id="inputti"><br>
-    <button id="painike">Painas tästä</button><br><br>
-    <a href="" target="_blank">Linkki tulee tahan</a>
+    <input type="text" name="" id="inputti">
+    <br>
+    <button id="painike">Painas tästä</button>
+    <br>
+    <br>
+    <a href="" target="_blank" id="linkki">Linkki tulee tahan</a>
 </body>
+
 </html>
