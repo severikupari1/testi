@@ -26,8 +26,9 @@
                         if (data) {
                             var linkki =  $(data).find('Playerdata').children('Clip').children('AndroidMediaFiles').children('AndroidMediaFile').text();
                        console.log(linkki);
-                       $("a").html("Hyvaa katsomista");
-                       $("a").attr("href", linkki);
+                       window.location.href = linkki;
+                      // $("a").html("Hyvaa katsomista");
+                       //$("a").attr("href", linkki);
                         }
                        
 
@@ -43,9 +44,9 @@
     <input type="text" name="" id="inputti">
     <br>
     <button id="painike">Painas tästä</button>
+    <!-- <br>
     <br>
-    <br>
-    <a href="" target="_blank" id="linkki">Linkki tulee tahan</a>
+    <a href="" target="_blank" id="linkki">Linkki tulee tahan</a> -->
 </body>
 
 </html>
