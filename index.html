@@ -23,8 +23,14 @@
                         console.log(data);
                         
                         // Playerdata > Clip > AndroidMediaFiles > AndroidMediaFile
-                       var linkki =  $(data).find('Playerdata').children('Clip').children('AndroidMediaFiles').children('AndroidMediaFile').text();
+                        if (data) {
+                            var linkki =  $(data).find('Playerdata').children('Clip').children('AndroidMediaFiles').children('AndroidMediaFile').text();
                        console.log(linkki);
+                       $("a").html("Hyvaa katsomista");
+                       $("a").attr("href", linkki);
+                        }
+                       
+
                     }
 
                 });
